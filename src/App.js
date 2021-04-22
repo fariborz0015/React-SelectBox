@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+ 
+import { useEffect, useState } from 'react';
+import axios from 'axios'
+import SelectBox from './SelectBox'
+function App(props) {
+
+  const [countries, countriesSet] = useState([]);
+  useEffect(() => {
+
+    axios.get('https://restcountries.eu/rest/v2/all?fields=translations').then(res => {
+      let options = [];
+      res.data.map((item, index) => {
+        options = [...options, {
+          label: item.translations.fa,
+          value: index,
+          disabled: index % 2 == 0 ? true : false
+        }]
+      });
+      countriesSet(options);
+    })
+  }, []);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SelectBox
+      searchable={true}
+      options={countries}
+      /*searching={e=>console.log(e)}*/ 
+      placeholderOption="گزینه خود را انتخاب کنید"
+      resetable={true}
+    />
   );
 }
 
