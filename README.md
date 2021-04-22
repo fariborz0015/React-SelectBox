@@ -45,9 +45,9 @@ let optionsArray =[
 ]
 ```
 
-`label` is string
-`value` string or integer
-`disabled` boolean
+- `label` is string
+- `value` string or integer
+- `disabled` boolean
 
 
 #### searchable
