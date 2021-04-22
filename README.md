@@ -45,8 +45,45 @@ let optionsArray =[
 ]
 ```
 
+`label` is string
+`value` string or integer
+`disabled` boolean
 
 
+#### searchable
+if you want to enable searchMode  add true to searchable props 
 
+```
+ <SelectBox  searchable={true} />
+    
+```
+
+also you can get searching value by searching props by a function that get value from
+
+```
+ <SelectBox  searchable={true} searching={str=>console.log(str)} />
+
+```
+
+#### placeholder option
+
+```
+<SelectBox   placeholderOption="your custom placeholder" />
+```
+
+####  resetable
+
+if you want a button for reset the select box add the ` resetable={true}` in selectbox component
+
+```
+<SelectBox resetable={true} />
+```
+
+
+### Future features
+
+  - make a multiselect mode 
+  - propss for get options directly
+  - and text me for your mind features....
 
  
